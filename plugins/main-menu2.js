@@ -19,7 +19,7 @@ module.exports = {
                                 `> 「 𝙏𝙞𝙢𝙚 - 𝙏𝙞𝙢𝙚𝙡𝙚𝙨𝙨 」`
                         },
                         footer: {
-                            text: 'Instant commands • abztech.xyz'
+                            text: 'Instant commands • https://cockroach-portfolio.vercel.app'
                         },
                         contextInfo: {
                             stanzaId: m.key.id,
