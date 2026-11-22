@@ -29,7 +29,7 @@ module.exports = {
 
         const botOwner = global.ownerName || 'ABZTECH';
         const user = m.pushName || m.sender?.split('@')[0] || 'User';
-        const Founder = 'ahmmikun';
+        const Founder = 'Cockroach';
 
         const menuText = `
 ┌─ム xʟɪᴄᴏɴ ᴍᴜʟᴛɪᴅᴇᴠɪᴄᴇ
