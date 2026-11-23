@@ -1,3 +1,5 @@
+const { isOwnerSender } = require('../lib/ownercheck');
+
 module.exports = {
     name: 'del',
     aliases: ['delete'],
@@ -6,7 +8,7 @@ module.exports = {
     async execute(sock, m) {
         
         await m.react('🧹');
-        if (!m.isOwner && !m.isAdmin) return
+        if (!isOwnerSender(sock, m) && !m.isAdmin) return
 
         if (!m.quoted) {
             return await m.reply('❌ ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ ᴛᴏ ᴅᴇʟᴇᴛᴇ ɪᴛ!')
