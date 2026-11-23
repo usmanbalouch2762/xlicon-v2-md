@@ -99,6 +99,7 @@ module.exports = {
 ├─ム *ғᴜɴ*
 │ ᪣ ${prefix}ғʟᴀɢ
 │ ᪣ ${prefix}ᴡᴀɪғᴜ
+│ ᪣ ${prefix}ᴀɴɪᴍsᴛɪᴄᴋᴇʀ
 │ ᪣ ${prefix}ɴᴇᴋᴏ
 │ ᪣ ${prefix}ᴋɪᴛsᴜɴᴇ
 │ ᪣ ${prefix}ʜᴜsʙᴀɴᴅᴏ
