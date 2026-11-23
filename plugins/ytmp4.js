@@ -157,7 +157,7 @@ module.exports = {
                         `📺 Quality: ${quality}\n` +
                         `⏱️ Duration: ${duration}\n` +
                         `📦 Size: ${(buffer.length / (1024 * 1024)).toFixed(2)} MB\n\n` +
-                        `ᴅᴏᴡɴʟᴏᴀᴅᴇᴅ ʙʏ XLICON V2`,
+                        `ᴅᴏᴡɴʟᴏᴀᴅᴇᴅ ʙʏ COCKROACH`,
                     contextInfo: {
                         forwardingScore: 999,
                         isForwarded: true,
