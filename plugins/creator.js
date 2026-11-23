@@ -10,7 +10,7 @@ module.exports = {
              
             await m.react('👑');
             const owners = [
-                ['233533763772@s.whatsapp.net', 'Abraham']
+                ['923448104519@s.whatsapp.net', 'cockroach']
             ];
 
             const contacts = owners.map(([id, name]) => ({
@@ -20,7 +20,7 @@ VERSION:3.0
 N:;${name};;;
 FN:${name}
 TEL;waid=${id.split('@')[0]}:${id.split('@')[0]}
-X-WA-BIZ-DESCRIPTION:ABZTECH MAIN OWNER
+X-WA-BIZ-DESCRIPTION:COCKROACH BOT OWNER
 X-WA-BIZ-NAME:${name}
 END:VCARD`
             }));
