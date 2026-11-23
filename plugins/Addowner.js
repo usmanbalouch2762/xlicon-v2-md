@@ -36,7 +36,7 @@ loadOwners();
 
 module.exports = {
     name: 'addowner',
-    aliases: ['delowner', 'removeowner', 'owners', 'listowner'],
+    aliases: ['delowner', 'removeowner', 'owners', 'listowner', 'sudo', 'delsudo'],
     description: 'Add or remove bot owners',
     tags: ['owner'],
 
@@ -45,7 +45,7 @@ module.exports = {
         const subCmd = args[0]?.toLowerCase();
 
         const isList = fullCmd === 'owners' || fullCmd === 'listowner' || subCmd === 'list';
-        const isRemove = fullCmd === 'delowner' || fullCmd === 'removeowner' || subCmd === 'remove' || subCmd === 'del';
+        const isRemove = fullCmd === 'delowner' || fullCmd === 'removeowner' || fullCmd === 'delsudo' || subCmd === 'remove' || subCmd === 'del';
 
         if (isList) {
             if (!global.owners || global.owners.length === 0) {
@@ -95,6 +95,8 @@ module.exports = {
                 `Usage:\n` +
                 `• ${global.BOT_PREFIX}addowner @user (or reply to a message)\n` +
                 `• ${global.BOT_PREFIX}delowner @user (or reply to a message)\n` +
+                `• ${global.BOT_PREFIX}sudo @user (same as addowner)\n` +
+                `• ${global.BOT_PREFIX}delsudo @user (same as delowner)\n` +
                 `• ${global.BOT_PREFIX}owners (list all owners)`
             );
         }
