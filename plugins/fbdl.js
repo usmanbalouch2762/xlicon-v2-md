@@ -79,7 +79,7 @@ module.exports = {
 
 ᴛɪᴛʟᴇ: ${title}
 
-ᴅᴏᴡɴʟᴏᴀᴅᴇᴅ ʙʏ XLICON V2`;
+ᴅᴏᴡɴʟᴏᴀᴅᴇᴅ ʙʏ COCKROACH`;
 
             await m.reply({
                 video: videoBuffer,
