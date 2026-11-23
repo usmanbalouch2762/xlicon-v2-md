@@ -1,8 +1,8 @@
 const axios = require('axios');
 
 module.exports = {
-    name: 'xlicon',
-    description: 'Auto reply audio when xlicon is detected',
+    name: 'cockroach',
+    description: 'Auto reply audio when cockroach is detected',
 
     async execute() {},
 
@@ -11,7 +11,7 @@ module.exports = {
 
         const text = m.text.trim().toLowerCase();
 
-        if (text !== 'xlicon') return;
+        if (text !== 'cockroach') return;
 
         try {
             const prefix = global.BOT_PREFIX || '.';
