@@ -1,11 +1,12 @@
 const toggles = require('../lib/toggles');
+const { isOwnerSender } = require('../lib/ownercheck');
 
 module.exports = {
     name: 'autoreact',
     description: 'Auto-reacts to messages from owners',
 
     async execute(sock, m, args) {
-        if (!global.owners.includes(m.sender)) return;
+        if (!isOwnerSender(sock, m)) return;
         if (args[0] === 'on') {
             toggles.autoreact = true;
             return m.reply('ᴀᴜᴛᴏʀᴇᴀᴄᴛ ᴏɴ ✅');
@@ -22,11 +23,7 @@ module.exports = {
             if (!toggles.autoreact) return;
             if (!m.body) return;
 
-            const owners = [
-                '923448104519@s.whatsapp.net'
-            ];
-
-            if (owners.includes(m.sender)) {
+            if (isOwnerSender(sock, m)) {
                 await m.react('👑');
             }
         } catch (err) {
