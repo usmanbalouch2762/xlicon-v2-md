@@ -16,7 +16,7 @@ module.exports = {
                 {
                     interactiveMessage: {
                         header: {
-                            title: "XLICON V2",
+                            title: "COCKROACH",
                             subtitle: "ABZTECH",
                             hasMediaAttachment: true,
                             locationMessage: {
