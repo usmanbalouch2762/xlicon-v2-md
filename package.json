@@ -1,22 +1,22 @@
 {
-  "name": "Xlicon",
+  "name": "Cockroach",
   "version": "1.0.0",
-  "description": "Xlicon WhatsApp Bot",
+  "description": "Cockroach WhatsApp Bot",
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
     "start": "node index.js",
-    "stop": "pm2 stop Xlicon",
-    "restart": "pm2 restart Xlicon",
+    "stop": "pm2 stop Cockroach",
+    "restart": "pm2 restart Cockroach",
     "bot": "node index.js"
   },
-  "author": "Xlicon",
+  "author": "Cockroach",
   "license": "MIT",
   "private": true,
   "keywords": [
     "whatsapp-bot",
     "baileys",
-    "xlicon"
+    "cockroach"
   ],
   "dependencies": {
     "@hapi/boom": "^10.0.1",
