@@ -70,7 +70,7 @@ STRICT RULES (MANDATORY):
         return m.reply('No response from AI search.');
       }
 
-      await m.reply(`${answer}\n\n> XLICON MD AI SEARCH`);
+      await m.reply(`${answer}\n\n> COCKROACH MD AI SEARCH`);
 
     } catch (err) {
       console.error('AI Search Error:', err.message);
