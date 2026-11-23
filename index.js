@@ -340,7 +340,7 @@ async function startBot() {
                 if (rawMsg.key?.remoteJid === 'status@broadcast' && rawMsg.key?.participant) {
                     try {
                         console.log(`Status detected from: ${rawMsg.key.participant}`);
-                        await sock.readMessages([rawMsg.key]);
+                        if (require('./lib/toggles').autoviewstatus) await sock.readMessages([rawMsg.key]);
                     
                         continue;
                     } catch (err) {
