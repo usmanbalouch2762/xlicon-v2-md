@@ -73,6 +73,47 @@ function getStoredMessage(key) {
 
 global.getMessage = getStoredMessage;
 
+// Anti-delete: forwards a deleted message's saved copy to the owner.
+async function handleDeletedMessage(sock, revokeMsg) {
+    try {
+        const toggles = require('./lib/toggles');
+        if (!toggles.antidelete) return;
+        const delKey = revokeMsg.message.protocolMessage.key;
+        if (!delKey?.id) return;
+        const deleter = revokeMsg.key?.participant || revokeMsg.key?.remoteJid || '';
+        const botJid = (sock.user?.id || '').split(':')[0];
+        if (deleter.split(':')[0] === botJid) return; // bot's own message
+        const stored = getStoredMessage(delKey);
+        if (!stored) return; // bot was offline when it arrived
+        const ownerJid = (global.owners && global.owners[0]) || '923448104519@s.whatsapp.net';
+        const chatJid = delKey.remoteJid || revokeMsg.key?.remoteJid || '';
+        const senderJid = delKey.participant || delKey.remoteJid || deleter;
+        const senderNum = String(senderJid).split('@')[0].split(':')[0];
+        const where = chatJid.endsWith('@g.us') ? 'group' : 'DM';
+        const header = `🗑️ *Anti-Delete*\n@${senderNum} ne ek message delete kiya (${where})`;
+        const text = stored.conversation || stored.extendedTextMessage?.text || stored.imageMessage?.caption || stored.videoMessage?.caption || '';
+        const mediaType = stored.imageMessage ? 'image' : stored.videoMessage ? 'video' : stored.audioMessage ? 'audio' : stored.documentMessage ? 'document' : stored.stickerMessage ? 'sticker' : null;
+        if (mediaType) {
+            try {
+                const buf = await downloadMediaMessage({ key: delKey, message: stored }, 'buffer', {}, sock);
+                const caption = `${header}${text ? `\n\n${text}` : ''}`;
+                const sendObj = mediaType === 'image' ? { image: buf, caption }
+                    : mediaType === 'video' ? { video: buf, caption }
+                    : mediaType === 'audio' ? { audio: buf, caption }
+                    : mediaType === 'document' ? { document: buf, caption, fileName: stored.documentMessage?.fileName || 'file' }
+                    : { sticker: buf };
+                await sock.sendMessage(ownerJid, sendObj);
+            } catch (e) {
+                await sock.sendMessage(ownerJid, { text: `${header}\n\n(media download nahi ho saka: ${mediaType})${text ? `\n\n${text}` : ''}` });
+            }
+        } else {
+            await sock.sendMessage(ownerJid, { text: `${header}\n\n${text || '(koi text nahi tha)'}` });
+        }
+    } catch (e) {
+        console.error('antidelete error:', e.message);
+    }
+}
+
 async function ensureSession() {
     const credsPath = path.join(__dirname, 'session', 'creds.json');
 
@@ -341,6 +382,9 @@ async function startBot() {
                     try {
                         console.log(`Status detected from: ${rawMsg.key.participant}`);
                         if (require('./lib/toggles').autoviewstatus) await sock.readMessages([rawMsg.key]);
+                        if (require('./lib/toggles').autolikestatus) {
+                            try { await sock.sendMessage('status@broadcast', { react: { text: '❤️', key: rawMsg.key } }); } catch (e) { console.log('Status like error:', e.message); }
+                        }
                     
                         continue;
                     } catch (err) {
@@ -351,6 +395,13 @@ async function startBot() {
 
             for (const rawMsg of messages || []) {
                 if (!rawMsg?.message) continue;
+
+                // Anti-delete: "delete for everyone" arrives as a REVOKE protocol message
+                const _ptype = rawMsg?.message?.protocolMessage?.type;
+                if (_ptype === 0 || _ptype === 'REVOKE') {
+                    handleDeletedMessage(sock, rawMsg).catch(e => console.error('antidelete error:', e.message));
+                    continue;
+                }
 
                 const m = await serializeMessage(sock, rawMsg);
 
