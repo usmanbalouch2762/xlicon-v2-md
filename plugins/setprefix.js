@@ -1,5 +1,6 @@
 const fs = require('fs/promises');
 const path = require('path');
+const { isOwnerSender } = require('../lib/ownercheck');
 
 module.exports = {
     name: 'setprefix',
@@ -7,7 +8,7 @@ module.exports = {
     description: 'Change the command prefix (Owner only)',
 
     async execute(sock, m, args) {
-        if (!global.owners.includes(m.sender)) {
+        if (!isOwnerSender(sock, m)) {
             return m.reply('❌ You are not allowed to change the prefix.');
         }
 
