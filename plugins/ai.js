@@ -172,7 +172,7 @@ ${userQuestion || '[User replied without extra text]'}
                 return m.reply('No response from AI.')
             }
 
-            await m.reply(`\u200B${answer}\n\n> XLICON MD`)
+            await m.reply(`\u200B${answer}\n\n> COCKROACH MD`)
 
         } catch (err) {
 
