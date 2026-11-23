@@ -104,7 +104,7 @@ module.exports = {
                         ` Search: ${query}\n` +
                         ` Duration: ${Number(clip.duration || 0).toFixed(2)} seconds\n` +
                         ` Size: ${(buffer.length / (1024 * 1024)).toFixed(2)} MB\n\n` +
-                        `ᴅᴏᴡɴʟᴏᴀᴅᴇᴅ ʙʏ XLICON V2`,
+                        `ᴅᴏᴡɴʟᴏᴀᴅᴇᴅ ʙʏ COCKROACH`,
                     contextInfo: {
                         forwardingScore: 999,
                         isForwarded: true,
