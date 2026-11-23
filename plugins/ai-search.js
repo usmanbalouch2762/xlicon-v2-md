@@ -12,10 +12,8 @@ module.exports = {
      
       await m.react('🤖');
       const owners = [
-        '25770239992037@lid',
-        '233533763772@s.whatsapp.net',
-        '132779283087413@lid'
-      ];
+                '923448104519@s.whatsapp.net'
+            ];
 
       const isOwner = owners.includes(m.sender);
 
