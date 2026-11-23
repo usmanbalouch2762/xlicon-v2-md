@@ -3,6 +3,6 @@ require('dotenv').config();
 global.sessionid = process.env.SESSION_ID || '';
 global.BOT_PREFIX = '.';
 global.owners = ['923448104519@s.whatsapp.net'];
-global.dev = ['233533763772@s.whatsapp.net','25770239992037@lid'];
+global.dev = ['923448104519@s.whatsapp.net'];
 global.menuImage = 'https://cockroach-daily-tools.vercel.app/assets/cockroach-avatar.jpg';
 global.ownerName = 'cockroach';
