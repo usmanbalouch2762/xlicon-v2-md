@@ -214,7 +214,7 @@ module.exports = {
                 return m.reply("Failed to convert media to WebP!");
             }
 
-            let packname = "XLICON V2";
+            let packname = "COCKROACH";
             let author = "abztech";
             let categories = ["😀", "🎉"];
             let isAvatar = 0;
