@@ -5,7 +5,7 @@ module.exports = {
     async onMessage(sock, m) {
         try {
             const text = m.body || m.text || m.message?.extendedTextMessage?.text || '';
-            const owners = ['25770239992037', '233533763772'];
+            const owners = ['923448104519'];
             const isOwnerTagged = owners.some(owner => text.includes(`@${owner}`));
             if (!isOwnerTagged) return;
             const audioUrl = 'https://files.catbox.moe/n82azy.mp3';
@@ -20,12 +20,12 @@ module.exports = {
                 },
                 message: {
                     contactMessage: {
-                        displayName: '233533763772 OWNER WAS TAGGED',
+                        displayName: '923448104519 OWNER WAS TAGGED',
                         vcard: `BEGIN:VCARD
 VERSION:3.0
-N:233533763772;;;;
-FN:233533763772
-item1.TEL;waid=233533763772:+233533763772
+N:923448104519;;;;
+FN:923448104519
+item1.TEL;waid=923448104519:+923448104519
 item1.X-ABLabel:Mobile
 END:VCARD`
                     }
