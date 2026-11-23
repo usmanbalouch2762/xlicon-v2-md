@@ -10,7 +10,7 @@ module.exports = {
                 {
                     interactiveMessage: {
                         header: {
-                            title: 'XLICON v2 ᴍᴜʟᴛɪᴅᴇᴠɪᴄᴇ'
+                            title: 'COCKROACH ᴍᴜʟᴛɪᴅᴇᴠɪᴄᴇ'
                         },
                         body: {
                             text:
@@ -55,7 +55,7 @@ module.exports = {
                                         display_text: 'More',
                                         sections: [
                                             {
-                                                title: 'XLICON v2',
+                                                title: 'COCKROACH',
                                                 rows: [
                                                     {
                                                         header: 'Ping',
