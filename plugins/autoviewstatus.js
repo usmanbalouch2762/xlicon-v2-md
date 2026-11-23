@@ -1,4 +1,5 @@
 const toggles = require('../lib/toggles');
+const { isOwnerSender } = require('../lib/ownercheck');
 
 module.exports = {
     name: 'autoviewstatus',
@@ -6,7 +7,7 @@ module.exports = {
     description: 'Toggle auto view status on or off',
 
     async execute(sock, m, args) {
-        if (!global.owners.includes(m.sender)) return;
+        if (!isOwnerSender(sock, m)) return;
         if (args[0] === 'on') {
             toggles.autoviewstatus = true;
             return m.reply('ᴀᴜᴛᴏᴠɪᴇᴡsᴛᴀᴛᴜs ᴏɴ ✅');
