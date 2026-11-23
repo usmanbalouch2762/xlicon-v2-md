@@ -12,7 +12,7 @@ module.exports = {
         const prefix = global.BOT_PREFIX || '.';
 
         const guideText = `
-┌─ム *XLICON V2 ᴍᴜʟᴛɪᴅᴇᴠɪᴄᴇ ɢᴜɪᴅᴇ*
+┌─ム *COCKROACH ᴍᴜʟᴛɪᴅᴇᴠɪᴄᴇ ɢᴜɪᴅᴇ*
 ╰──────────────────╯
 
 👋 *Welcome!* This bot can do a lot!
@@ -81,7 +81,7 @@ Below is everything you need to know.
   Styles: neon, glitter, fire, shadow, gradient,
   dropwater, cloud, pixel, underwater, summer,
   thunder, pencil, leaves
-  Example: ${prefix}textpro neon | XLICON
+  Example: ${prefix}textpro neon | COCKROACH
 
 > *Music Identification*
   ${prefix}shazam
